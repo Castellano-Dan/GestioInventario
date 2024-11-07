@@ -22,7 +22,14 @@ namespace GestioInventario
         {
             Console.WriteLine($"Producto: {Nombre}, Precio: {Precio:C}");
         }
-    }
 
+        public void ActualizarPrecio()
+        {
+
+        }
+
+       
+       
+    }
 }
 
