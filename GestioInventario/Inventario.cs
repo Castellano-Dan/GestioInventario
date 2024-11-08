@@ -50,7 +50,28 @@ namespace GestioInventario
             Console.WriteLine("Producto no encontrado.");
         }
 
+        public void EliminarProducto(string nombre)
+        {
+            Producto productoAEliminar = null;
+            foreach (var producto in productos)
+            {
+                if (producto.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                {
+                    productoAEliminar = producto;
+                    break;
+                }
+            }
 
+            if (productoAEliminar != null)
+            {
+                productos.Remove(productoAEliminar);
+                Console.WriteLine("Producto eliminado.");
+            }
+            else
+            {
+                Console.WriteLine("Producto no encontrado.");
+            }
+        }
 
     }
 }
