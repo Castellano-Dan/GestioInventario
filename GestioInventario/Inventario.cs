@@ -26,6 +26,8 @@ namespace GestioInventario
             return productos.Where(p => p.Precio > precioMinimo)
                             .OrderBy(p => p.Precio)
                             .ToList();
+
+
         }
 
         public void ActualizarPrecio(string nombre, decimal nuevoPrecio)
@@ -77,23 +79,19 @@ namespace GestioInventario
 
         public void ContarYAgruparProductos()
         {
-        int menores100 = 0, entre100y500 = 0, mayores500 = 0;
+       int productosMenoresA100 = productos.Count(p => p.Precio < 100);
+        
+        
+        int productosEntre100y500 = productos.Count(p => p.Precio >= 100 && p.Precio <= 500);
+        
+       
+        int productosMayoresA500 = productos.Count(p => p.Precio > 500);
 
-        foreach (var producto in productos)
-        {
-            if (producto.Precio < 100)
-                menores100++;
-            else if (producto.Precio >= 100 && producto.Precio <= 500)
-                entre100y500++;
-            else
-                mayores500++;
-        }
-
-        Console.WriteLine($"Menores a 100: {menores100}");
-        Console.WriteLine($"Entre 100 y 500: {entre100y500}");
-        Console.WriteLine($"Mayores a 500: {mayores500}");
-        }
-
+        // Mostrar los resultados
+        Console.WriteLine($"Productos con precio menor a 100: {productosMenoresA100}");
+        Console.WriteLine($"Productos con precio entre 100 y 500: {productosEntre100y500}");
+        Console.WriteLine($"Productos con precio mayor a 500: {productosMayoresA500}");
+    }
 
         public void GenerarReporte()
         {
