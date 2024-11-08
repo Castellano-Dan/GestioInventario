@@ -77,22 +77,23 @@ namespace GestioInventario
 
         public void ContarYAgruparProductos()
         {
-            int menores100 = 0, entre100y500 = 0, mayores500 = 0;
+        int menores100 = 0, entre100y500 = 0, mayores500 = 0;
 
-            foreach (var producto in productos)
-            {
-                if (producto.Precio < 100)
-                    menores100++;
-                else if (producto.Precio >= 100 && producto.Precio <= 500)
-                    entre100y500++;
-                else
-                    mayores500++;
-            }
-
-            Console.WriteLine($"Menores a 100: {menores100}");
-            Console.WriteLine($"Entre 100 y 500: {entre100y500}");
-            Console.WriteLine($"Mayores a 500: {mayores500}");
+        foreach (var producto in productos)
+        {
+            if (producto.Precio < 100)
+                menores100++;
+            else if (producto.Precio >= 100 && producto.Precio <= 500)
+                entre100y500++;
+            else
+                mayores500++;
         }
+
+        Console.WriteLine($"Menores a 100: {menores100}");
+        Console.WriteLine($"Entre 100 y 500: {entre100y500}");
+        Console.WriteLine($"Mayores a 500: {mayores500}");
+        }
+
 
         public void GenerarReporte()
         {
@@ -124,6 +125,7 @@ namespace GestioInventario
             }
         }
     }
-
 }
+
+
 

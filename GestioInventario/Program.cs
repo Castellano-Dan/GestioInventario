@@ -7,10 +7,10 @@ public class Program
     {
         Inventario inventario = new Inventario();
 
-        // Ejemplo de agregar productos
-        inventario.AgregarProducto(new Producto("Producto1", 150.00m));
-        inventario.AgregarProducto(new Producto("Producto2", 250.00m));
-        inventario.AgregarProducto(new Producto("Producto3", 50.00m));
+       
+        inventario.AgregarProducto(new Producto("Birkin bag", 120.00m));
+        inventario.AgregarProducto(new Producto("Cartier Bracelet", 80.00m));
+        inventario.AgregarProducto(new Producto("Vancleef necklace", 90.00m));
 
         Console.WriteLine("Ingrese el precio mínimo para filtrar los productos:");
         decimal precioMinimo = Convert.ToDecimal(Console.ReadLine());
@@ -22,6 +22,9 @@ public class Program
         {
             producto.MostrarInformacion();
         }
+
+
+
     }
 
 
