@@ -94,6 +94,36 @@ namespace GestioInventario
             Console.WriteLine($"Mayores a 500: {mayores500}");
         }
 
+        public void GenerarReporte()
+        {
+            if (productos.Count > 0)
+            {
+                decimal totalPrecio = 0;
+                Producto productoMasCaro = productos[0];
+                Producto productoMasBarato = productos[0];
+
+                foreach (var producto in productos)
+                {
+                    totalPrecio += producto.Precio;
+
+                    if (producto.Precio > productoMasCaro.Precio)
+                        productoMasCaro = producto;
+                    if (producto.Precio < productoMasBarato.Precio)
+                        productoMasBarato = producto;
+                }
+
+                decimal precioPromedio = totalPrecio / productos.Count;
+                Console.WriteLine($"Número total de productos: {productos.Count}");
+                Console.WriteLine($"Precio promedio: {precioPromedio:C}");
+                Console.WriteLine($"Producto más caro: {productoMasCaro.Nombre} - {productoMasCaro.Precio:C}");
+                Console.WriteLine($"Producto más barato: {productoMasBarato.Nombre} - {productoMasBarato.Precio:C}");
+            }
+            else
+            {
+                Console.WriteLine("No hay productos en el inventario.");
+            }
+        }
     }
+
 }
 
