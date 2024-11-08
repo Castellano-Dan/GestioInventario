@@ -28,13 +28,30 @@ namespace GestioInventario
                             .ToList();
         }
 
-        public void MostrarProductos()
+        public void ActualizarPrecio(string nombre, decimal nuevoPrecio)
         {
             foreach (var producto in productos)
             {
-                producto.MostrarInformacion();
+                if (producto.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (nuevoPrecio > 0)
+                    {
+                        producto.Precio = nuevoPrecio;
+                        Console.WriteLine("Precio actualizado.");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("El precio debe ser positivo.");
+                        return;
+                    }
+                }
             }
+            Console.WriteLine("Producto no encontrado.");
         }
+
+
+
     }
 }
 
